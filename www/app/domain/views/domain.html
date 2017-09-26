@@ -14,6 +14,10 @@
       <div class='strip-zone' ng-repeat="strip in strips | orderBy: ['date', 'id']">
         <strip-thumbnail strip="strip"></strip-thumbnail>
       </div>
+      <ion-infinite-scroll ng-if="canLoadMore" on-infinite="loadMore()" distance="1%">
+
+      </ion-infinite-scroll>
     </div>
+
   </ion-content>
 </ion-view>

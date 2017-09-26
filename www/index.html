@@ -32,10 +32,14 @@
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
   <script src="cordova.js"></script>
 
-  <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+  <script src="lib/js-data/dist/js-data.min.js"></script>
+  <script src="lib/js-data-angular/dist/js-data-angular.min.js"></script>
+  <script src="lib/js-data-sql/dist/js-data-sql.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
 </head>
 
 <body ng-app="starter" style='background-color:#F6F6E6' ng-controller="MainCtrl">
@@ -73,6 +77,8 @@
   <script src="app/common/controllers/MainCtrl.js"></script>
   <script src="app/common/directives/comment.js"></script>
   <script src="app/common/services/api.js"></script>
+  <script src="app/common/services/sqlite.js"></script>
+  <script src="app/common/services/pouchdb.js"></script>
 
   <!-- Home -->
   <script src="app/home/controllers/HomeCtrl.js"></script>

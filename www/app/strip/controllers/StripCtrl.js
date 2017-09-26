@@ -1,4 +1,4 @@
-function StripCtrl($scope, $ionicPopup, $location, $rootScope, $http,
+function StripCtrl($scope, $location, $rootScope, $http,
   $stateParams, $ionicSlideBoxDelegate, Strip, Pub) {
 
   var idStories = $rootScope.idStories;

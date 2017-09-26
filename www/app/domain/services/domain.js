@@ -1,28 +1,16 @@
-angular.module('starter.services')
-  .factory("Domain", function($http, CacheFactory, Api) {
+function Domain(Api) {
 
-    var domainCache;
-
-    if (!CacheFactory.get('domainCache')) {
-
-      domainCache = CacheFactory('domainCache', {
-        maxAge: 24 * 60 * 60 * 1000,
-        deleteOnExpire: 'aggressive',
-        storageMode: 'localStorage'
-      });
-
-    }
+    console.log("Init domain service");
 
     return {
-      returnDomain: function() {
-        return $http.get(`${Api.baseUrl}infoGeneral`, {
-          cache: domainCache
-        });
-      },
-      returnInfo: function(domain) {
-        return $http.get(`${Api.baseUrl}info/${domain}`, {
-          cache: domainCache
-        });
-      }
+        returnDomain: function () {
+            return Api.get('infoGeneral');
+        },
+        returnInfo: function (domain) {
+            return Api.get(`info/${domain}`);
+        }
     };
-  });
+}
+
+angular.module('starter.services')
+    .service("Domain", Domain);

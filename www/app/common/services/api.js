@@ -1,6 +1,13 @@
-angular.module('starter.services')
-  .factory("Api", function($http) {
+function Api($http) {
+
+    const baseUrl = 'https://api.lapin.org/';
+
     return {
-      baseUrl: 'https://api.lapin.org/'
+        get: function (route) {
+            return $http.get(baseUrl + route);
+        }
     };
-  });
+}
+
+angular.module('starter.services')
+    .service("Api", Api);

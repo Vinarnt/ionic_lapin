@@ -1,10 +1,16 @@
 function DomainCtrl($scope, $rootScope, $stateParams, Domain, Strip,) {
 
-  const INITIAL_STRIPS_COUNT = 20;
+  const STRIP_LOAD_BULK_SIZE = 5;
+
+  var stripOffset = 0;
+  var canLoadMore = true;
 
   var domain = $stateParams.domain;
+
   $scope.loading = true;
   $scope.domain = domain;
+  $scope.canLoadMore = canLoadMore;
+  $scope.strips = [];
 
   //GET INFO domain
   Domain.returnInfo(domain)
@@ -13,19 +19,32 @@ function DomainCtrl($scope, $rootScope, $stateParams, Domain, Strip,) {
       $scope.info = info.data[0];
     });
 
-  // Populate initial strips
-  Strip.returnNthStrips(domain, INITIAL_STRIPS_COUNT, 0)
-    .then(function(strips) {
+  $scope.loadMore = function() {
+    Strip.returnNthStrips(domain, STRIP_LOAD_BULK_SIZE, stripOffset)
+      .then(function(strips) {
 
-      $scope.strips = strips.data;
-      $scope.loading = false;
+        $scope.loading = false;
 
-      $scope.strips.forEach(function(strip) {
-        strip.domain = $scope.domain;
+        let stripCount = strips.data.length;
+        if(stripCount == 0) {
+          canLoadMore = false;
 
-        stripImageLoader(strip);
+          return;
+        }
+
+        stripOffset += stripCount;
+
+        strips.data.forEach(function(strip) {
+
+          strip.domain = $scope.domain;
+          $scope.strips.push(strip);
+
+          stripImageLoader(strip);
+        });
+
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       });
-    });
+  };
 
   var stripImageLoader = function(strip) {
     strip.loading = true;
@@ -36,6 +55,9 @@ function DomainCtrl($scope, $rootScope, $stateParams, Domain, Strip,) {
         strip.loading = false;
       });
   };
+
+  // Populate initial strips
+  $scope.loadMore();
 }
 
 angular.module('starter.controllers')
