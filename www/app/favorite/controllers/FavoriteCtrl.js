@@ -1,9 +1,9 @@
-function FavoriteCtrl($ionicPlatform, $scope, Favorite) {
+function FavoriteCtrl($ionicPlatform, $scope, $ionicActionSheet, $cordovaToast, Favorite) {
 
     $scope.favorites = null;
     $scope.loading = true;
     $scope.hasError = false;
-    $scope.hasFavorites = true;
+    $scope.hasFavorites = false;
 
     console.log('Init favorite controller');
     $ionicPlatform.ready(function () {
@@ -22,6 +22,37 @@ function FavoriteCtrl($ionicPlatform, $scope, Favorite) {
             }
         );
     });
+
+    $scope.onHold = function(stripId) {
+
+        let strip = $scope.favorites[stripId];
+
+        $ionicActionSheet.show({
+            buttons: [
+                {text: 'Supprimer des favoris'}
+            ],
+            cancelText: 'Retour',
+            buttonClicked: function (index) {
+
+                switch (index) {
+
+                    case 0:
+
+                        Favorite.removeFavorite(stripId).then(function () {
+
+                            $cordovaToast.showShortBottom(`Strip ${strip.title} supprimé des favoris`);
+                        }, function (error) {
+
+                            $cordovaToast.showShortBottom(`Erreur lors de la supréssion du strip ${strip.title}`)
+                        });
+
+                        break;
+                }
+
+                return true;
+            }
+        });
+    };
 }
 
 angular.module('starter.controllers')

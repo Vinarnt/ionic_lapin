@@ -35,6 +35,11 @@ angular.module('starter')
                 url: '/favorites',
                 templateUrl: 'app/favorite/views/favorites.html',
                 controller: 'FavoriteCtrl'
+            })
+            .state('favorites_strips_slide', {
+                url: '/favorites/strips/:stripId',
+                templateUrl: 'app/favorite/views/favorites-slide.html',
+                controller: 'FavoriteSlideCtrl'
             });
         $urlRouterProvider.otherwise('/home');
     });

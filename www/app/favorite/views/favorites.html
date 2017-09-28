@@ -16,7 +16,8 @@
         <div class='grid-wrapper' ng-show="hasFavorites">
 
             <div class='strip-zone' ng-repeat="(key, value) in favorites">
-                <strip-thumbnail strip="value" ui-sref="strip({domain: domain, id: strip.id})"></strip-thumbnail>
+                <strip-thumbnail strip="value" ui-sref="favorites_strips_slide({stripId: value.id})" on-hold="onHold(value.id)">
+                </strip-thumbnail>
             </div>
 
         </div>

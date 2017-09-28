@@ -38,10 +38,6 @@ function Favorite($ionicPlatform, $cordovaPreferences, $q) {
                 $cordovaPreferences.fetch(KEY)
                     .success(function (value) {
 
-                        console.log("Value");
-                        console.log(typeof value);
-                        console.log(value);
-
                         for(let key in value) {
                             console.log(key + " -> " + value[key]);
                         }
@@ -66,6 +62,7 @@ function Favorite($ionicPlatform, $cordovaPreferences, $q) {
         },
         clear: function () {
 
+            favorites = {};
             $cordovaPreferences.remove(KEY)
                 .error(function (error) {
 

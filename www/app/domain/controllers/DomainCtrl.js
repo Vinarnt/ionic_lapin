@@ -1,4 +1,4 @@
-function DomainCtrl($rootScope, $scope, $stateParams, $cordovaToast, Domain, Strip, Favorite) {
+function DomainCtrl($rootScope, $scope, $stateParams, $ionicActionSheet, $cordovaToast, Domain, Strip, Favorite) {
 
     const STRIPS_LOAD_BULK_SIZE = 10;
 
@@ -32,19 +32,44 @@ function DomainCtrl($rootScope, $scope, $stateParams, $cordovaToast, Domain, Str
 
     $scope.onHold = function (stripId) {
 
-        for (let i = 0; i < $scope.strips.length; i++) {
+        $ionicActionSheet.show({
+            buttons: [
+                {text: 'Ajouter aux favoris'}
+            ],
+            cancelText: 'Retour',
+            buttonClicked: function (index) {
 
-            let strip = $scope.strips[i];
+                switch (index) {
 
-            if (parseInt(strip.id) === stripId) {
+                    case 0:
 
-                Favorite.addFavorite(strip);
+                        for (let i = 0; i < $scope.strips.length; i++) {
 
-                $cordovaToast.showShortBottom(`Strip ${strip.title} ajouté aux favoris`);
+                            let strip = $scope.strips[i];
 
-                return;
+                            if (parseInt(strip.id) === stripId) {
+
+                                Favorite.addFavorite(strip).then(
+                                    function () {
+
+                                        $cordovaToast.showShortBottom(`Strip ${strip.title} ajouté aux favoris`);
+                                    },
+                                    function (error) {
+
+                                        $cordovaToast.showShortBottom(`Erreur lors de l'ajout du strip ${strip.title} aux favoris`)
+                                    }
+                                );
+
+                                break;
+                            }
+                        }
+
+                        break;
+                }
+
+                return true;
             }
-        }
+        });
     };
 
     $scope.loadMore = function () {
