@@ -30,6 +30,11 @@ angular.module('starter')
                 url: '/story/:domain/:storyId/:stripId',
                 templateUrl: 'app/story/views/story-slide.html',
                 controller: 'StorySlideCtrl'
+            })
+            .state('favorites', {
+                url: '/favorites',
+                templateUrl: 'app/favorite/views/favorites.html',
+                controller: 'FavoriteCtrl'
             });
         $urlRouterProvider.otherwise('/home');
     });
