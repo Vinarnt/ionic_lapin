@@ -1,4 +1,4 @@
-function DomainCtrl($rootScope, $scope, $stateParams, Domain, Strip) {
+function DomainCtrl($rootScope, $scope, $stateParams, $ionicActionSheet, $cordovaToast, Domain, Strip, Favorite) {
 
     const STRIPS_LOAD_BULK_SIZE = 10;
 
@@ -30,12 +30,54 @@ function DomainCtrl($rootScope, $scope, $stateParams, Domain, Strip) {
             });
     };
 
+    $scope.onHold = function (stripId) {
+
+        $ionicActionSheet.show({
+            buttons: [
+                {text: 'Ajouter aux favoris'}
+            ],
+            cancelText: 'Retour',
+            buttonClicked: function (index) {
+
+                switch (index) {
+
+                    case 0:
+
+                        for (let i = 0; i < $scope.strips.length; i++) {
+
+                            let strip = $scope.strips[i];
+
+                            if (parseInt(strip.id) === stripId) {
+
+                                Favorite.addFavorite(strip).then(
+                                    function () {
+
+                                        $cordovaToast.showShortBottom(`Strip ${strip.title} ajouté aux favoris`);
+                                    },
+                                    function (error) {
+
+                                        $cordovaToast.showShortBottom(`Erreur lors de l'ajout du strip ${strip.title} aux favoris`)
+                                    }
+                                );
+
+                                break;
+                            }
+                        }
+
+                        break;
+                }
+
+                return true;
+            }
+        });
+    };
+
     $scope.loadMore = function () {
 
         Strip.returnNthStrips(domainName, STRIPS_LOAD_BULK_SIZE, offset)
             .then(function (response) {
 
-                $scope.strips.push.apply($scope.strips, response.data);
+                $scope.strips = $scope.strips.concat(response.data);
                 $scope.canLoadMore = response.data.length === STRIPS_LOAD_BULK_SIZE;
 
                 $scope.strips.forEach(function (strip) {

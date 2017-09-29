@@ -35,11 +35,13 @@
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-  <!-- cordova script (this will be a 404 during development) -->
-  <!--suppress HtmlUnknownTarget -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--suppress HtmlUnknownTarget -->
     <script src="cordova.js"></script>
 
-  <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+    <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
 </head>
 
 <body ng-app="starter" style='background-color:#F6F6E6' ng-controller="MainCtrl">
@@ -48,12 +50,12 @@
     -->
   <ion-nav-bar class="bar-light font lapin-color">
 
-    <ion-nav-back-button>
-    </ion-nav-back-button>
+      <ion-nav-back-button>
+      </ion-nav-back-button>
 
-    <ion-nav-buttons side="right">
-      <div class="navbar-menu-button" ng-click="showMenu($event)"></div>
-    </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+          <div class="navbar-menu-button" ng-click="showMenu($event)"></div>
+      </ion-nav-buttons>
   </ion-nav-bar>
 
 
@@ -90,6 +92,7 @@
   <!-- Strip -->
   <script src="app/strip/controllers/StripCtrl.js"></script>
   <script src="app/strip/services/strip.js"></script>
+  <script src="app/strip/services/pub.js"></script>
 
   <!-- Story -->
   <script src="app/story/services/story.js"></script>
@@ -97,9 +100,10 @@
   <script src="app/story/controllers/StoryCtrl.js"></script>
   <script src="app/story/controllers/StorySlideCtrl.js"></script>
 
-  <!-- Pub -->
-  <script src="app/pub/services/pub.js"></script>
-  <script src="app/pub/controllers/PubCtrl.js"></script>
+  <!--Favorite-->
+  <script src="app/favorite/controllers/FavoriteCtrl.js"></script>
+  <script src="app/favorite/controllers/FavoriteSlideCtrl.js"></script>
+  <script src="app/favorite/services/favorite.js"></script>
 
   <!-- Partials -->
   <script src="app/partials/strip/directives/strip-thumbnail.js"></script>

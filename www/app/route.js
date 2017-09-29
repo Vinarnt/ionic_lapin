@@ -44,6 +44,16 @@ angular.module('starter')
                 url: '/story/:domain/:storyId/:stripId',
                 templateUrl: 'app/story/views/story-slide.html',
                 controller: 'StorySlideCtrl'
+            })
+            .state('favorites', {
+                url: '/favorites',
+                templateUrl: 'app/favorite/views/favorites.html',
+                controller: 'FavoriteCtrl'
+            })
+            .state('favorites_strips_slide', {
+                url: '/favorites/strips/:stripId',
+                templateUrl: 'app/favorite/views/favorites-slide.html',
+                controller: 'FavoriteSlideCtrl'
             });
         $urlRouterProvider.otherwise('/home');
     });

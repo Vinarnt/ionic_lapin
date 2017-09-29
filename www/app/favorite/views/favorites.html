@@ -1,0 +1,26 @@
+<ion-view view-title="Favoris">
+    <ion-content>
+
+        <div class="inline-center" ng-show="loading">
+            <ion-spinner class="spinner-energized"></ion-spinner>
+        </div>
+
+        <div class="inline-center" ng-show="hasError">
+            Une erreur est survenue.
+        </div>
+
+        <div class="inline-center" ng-hide="loading || hasFavorites || hasError">
+            Aucun favoris.
+        </div>
+
+        <div class='grid-wrapper' ng-show="hasFavorites">
+
+            <div class='strip-zone' ng-repeat="(key, value) in favorites">
+                <strip-thumbnail strip="value" ui-sref="favorites_strips_slide({stripId: value.id})" on-hold="onHold(value.id)">
+                </strip-thumbnail>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
