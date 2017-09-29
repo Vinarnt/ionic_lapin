@@ -12,7 +12,7 @@ h1 {
     width: 25px;
 }
 
-.popover {
+.platform-android .popover, .popover {
     background-color: #BF681A;
 }
 
@@ -24,16 +24,16 @@ h1 {
     background-color: transparent;
 }
 
-.popover .item, .popover .item a {
+.platform-android .popover .item, .popover .item {
     background-color: transparent;
+    border: none;
     border-bottom: dashed 1px #F6F6E6;
     color: #F6F6E6;
     font-family: pacificoregular, "Times New Roman", serif;
-    font-size: 1.2rem;
-    height: 35px;
-    padding-left: 10px;
-    padding-top: 7px;
-    text-decoration: none;
+}
+
+.popover .item:last-child {
+    border: 0;
 }
 
 .popover .item:hover {
