@@ -3,23 +3,23 @@
 
         <ul class="list">
 
-            <li class="item" ui-sref="home">
+            <li class="item" ui-sref="home" ng-click="closeMenu()">
                 Accueil
             </li>
 
-            <li class="item" ng-click="openLibraryLink()">
+            <li class="item" ng-click="openLibraryLink(); closeMenu()">
                 Librairie
             </li>
 
-            <li class="item" ng-show="showStoriesLink" ui-sref="stories({domain: domain })">
+            <li class="item" ng-show="showStoriesLink" ui-sref="stories({domain: domain })" ng-click="closeMenu()">
                 Histoires
             </li>
 
-            <li class="item" ui-sref="favorites">
+            <li class="item" ui-sref="favorites" ng-click="closeMenu()">
                 Favoris
             </li>
 
-            <li class="item">
+            <li class="item" ng-click="closeMenu()">
                 Archives
             </li>
 

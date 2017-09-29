@@ -15,6 +15,11 @@ function MainCtrl($scope, $stateParams, $ionicPopover) {
         menuPopover.show($event);
     };
 
+    $scope.closeMenu = function () {
+
+        menuPopover.hide();
+    };
+
     $scope.$on('$stateChangeSuccess', function (event, current) {
 
         $scope.showStoriesLink = $stateParams.domain !== undefined
