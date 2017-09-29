@@ -13,7 +13,6 @@ function PubCtrl($scope, Pub) {
 
     $scope.openPubLink = function () {
 
-        console.log("open");
         window.open($scope.pub.link, '_blank');
     }
 }

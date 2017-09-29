@@ -3,7 +3,10 @@
 
     <div class='grid-wrapper'>
       <div class='strip-zone' ng-repeat="strip in strips | orderBy: ['date', 'id']">
-        <strip-thumbnail strip="strip" ui-sref="story_strips_slide({domain: domain, storyId: storyId, stripId: strip.id})"></strip-thumbnail>
+        <strip-thumbnail strip="strip"
+                         ui-sref="story_strips_slide({domain: domain, storyId: strip.story_id, stripId: strip.id})"
+                         on-hold="onHold({{ strip.id }})">
+        </strip-thumbnail>
       </div>
     </div>
 
