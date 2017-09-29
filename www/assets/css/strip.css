@@ -20,12 +20,15 @@ ion-slides {
 }
 
 .button {
-  background: #be6414;
-  color: #F6F6E6;
+  background: #FFFF;
+  border-color: #be6414;
+  color: #be6414;
   font-family: pacificoregular, "Times New Roman", serif;
   font-size: 1.2rem;
+
 }
 
 .button:hover {
+  background: #be6414;
   color: rgb(0, 200, 175);
 }
