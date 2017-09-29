@@ -1,29 +1,29 @@
 <ion-popover-view>
     <ion-content>
 
-        <div class="navbar-menu-popover">
+        <ul class="list">
 
-            <div class="menu-popover-item" ng-click="openLibraryLink()">
+            <li class="item" ng-click="openLibraryLink()">
                 Librairie
-            </div>
+            </li>
 
-            <div class="menu-popover-item" ng-show="showStoriesLink" ui-sref="stories({domain: domain })">
+            <li class="item" ng-show="showStoriesLink" ui-sref="stories({domain: domain })">
                 Histoires
-            </div>
+            </li>
 
-            <div class="menu-popover-item">
-                <a href="#">Strips</a>
-            </div>
+            <li class="item">
+                Strips
+            </li>
 
-            <div class="menu-popover-item" ui-sref="favorites()">
+            <li class="item" ui-sref="favorites()">
                 Favoris
-            </div>
+            </li>
 
-            <div class="menu-popover-item">
-                <a href="#">Archives</a>
-            </div>
+            <li class="item">
+                Archives
+            </li>
 
-        </div>
+        </ul>
 
     </ion-content>
 </ion-popover-view>
