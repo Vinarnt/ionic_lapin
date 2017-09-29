@@ -1,3 +1,5 @@
+let pubPopup = null;
+
 angular.module('starter')
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -15,6 +17,18 @@ angular.module('starter')
                 url: '/strips/:domain/:id',
                 templateUrl: 'app/strip/views/strip.html',
                 controller: 'StripCtrl'
+            })
+            .state('strip.pub', {
+                url: '/pub',
+                controller: 'PubCtrl',
+                onEnter: function (Popup) {
+                    pubPopup = Popup.showPub();
+                },
+                onExit: function () {
+                    console.log("Leave");
+                    console.log(pubPopup);
+                    pubPopup.close();
+                }
             })
             .state('stories', {
                 url: '/stories/:domain',
