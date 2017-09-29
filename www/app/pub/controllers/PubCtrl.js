@@ -13,7 +13,7 @@ function PubCtrl($scope, Pub) {
 
     $scope.openPubLink = function () {
 
-        window.open($scope.pub.link, '_blank');
+        window.open($scope.pub.link, '_system');
     }
 }
 

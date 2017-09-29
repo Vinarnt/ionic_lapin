@@ -3,9 +3,8 @@
 
         <div class="navbar-menu-popover">
 
-            <div class="menu-popover-item">
-                <a href="#"
-                   onclick="window.open('http://librairie.lapin.org/', '_system', 'location=yes'); return false;">Librairie</a>
+            <div class="menu-popover-item" ng-click="openLibraryLink()">
+                Librairie
             </div>
 
             <div class="menu-popover-item" ng-show="showStoriesLink" ui-sref="stories({domain: domain })">
