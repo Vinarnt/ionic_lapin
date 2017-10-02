@@ -3,7 +3,7 @@ function DomainCtrl($rootScope, $scope, $stateParams, $ionicActionSheet, $cordov
     const STRIPS_LOAD_BULK_SIZE = 10;
 
     let domainName = $stateParams.domain;
-    let offset = 0;
+    let lastStripId = 0;
 
     $scope.loading = true;
     $rootScope.domain = domainName;
@@ -74,18 +74,18 @@ function DomainCtrl($rootScope, $scope, $stateParams, $ionicActionSheet, $cordov
 
     $scope.loadMore = function () {
 
-        Strip.returnNthStrips(domainName, STRIPS_LOAD_BULK_SIZE, offset)
+        Strip.returnNthStrips(domainName, STRIPS_LOAD_BULK_SIZE, lastStripId)
             .then(function (response) {
 
                 $scope.strips = $scope.strips.concat(response.data);
                 $scope.canLoadMore = response.data.length === STRIPS_LOAD_BULK_SIZE;
 
-                $scope.strips.forEach(function (strip) {
+                response.data.forEach(function (strip) {
 
                     stripImageLoader(strip);
                 });
 
-                offset += $scope.strips.length;
+                lastStripId += parseInt($scope.strips[$scope.strips.length - 1].id) + 1;
 
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             });
