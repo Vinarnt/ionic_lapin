@@ -12,7 +12,7 @@ angular.module('starter')
             /**
              ** Executes the top function on the general queue (if any).
              **/
-            function executeGeneralTail() {
+            function executeGeneralHead() {
 
                 if (generalQueue.length === 0) {
                     return;
@@ -24,7 +24,7 @@ angular.module('starter')
             /**
              ** Executes the top function on the image queue (if any).
              **/
-            function executeImageTail() {
+            function executeImageHead() {
 
                 if (imageQueue.length === 0) {
                     return;
@@ -61,10 +61,10 @@ angular.module('starter')
 
                         if (!isImage && generalQueue.length === 1) {
 
-                            executeGeneralTail();
+                            executeGeneralHead();
                         } else if (imageQueue.length === 1) {
 
-                            executeImageTail();
+                            executeImageHead();
                         }
 
                         return deferred.promise;
@@ -84,11 +84,11 @@ angular.module('starter')
                         if(isImageRequest(response.config)) {
 
                             imageQueue.shift();
-                            executeImageTail();
+                            executeImageHead();
                         } else {
 
                             generalQueue.shift();
-                            executeGeneralTail();
+                            executeGeneralHead();
                         }
                     }
 
@@ -105,11 +105,11 @@ angular.module('starter')
                         if(isImageRequest(responseError.config)) {
 
                             imageQueue.shift();
-                            executeImageTail();
+                            executeImageHead();
                         } else {
 
                             generalQueue.shift();
-                            executeGeneralTail();
+                            executeGeneralHead();
                         }
                     }
 
