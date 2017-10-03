@@ -1,4 +1,4 @@
-function MainCtrl($scope, $stateParams, $ionicPopover) {
+function MainCtrl($scope, $stateParams, $ionicPopover, Popup) {
 
     let menuPopover;
 
@@ -28,6 +28,11 @@ function MainCtrl($scope, $stateParams, $ionicPopover) {
     $scope.openLibraryLink = function () {
 
         window.open('http://librairie.lapin.org/', '_system');
+    };
+
+    $scope.openArchive = function () {
+
+        Popup.showArchive();
     };
 }
 

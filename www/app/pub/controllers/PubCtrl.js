@@ -2,6 +2,9 @@ function PubCtrl($scope, Pub) {
 
     $scope.loading = true;
 
+    let result = document.getElementsByClassName("popup");
+    angular.element(result).addClass('popup-fullscreen');
+
     Pub.returnLapinPub().then(function (response) {
 
         $scope.pub = response.data[0];

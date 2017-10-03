@@ -1,9 +1,9 @@
-.popup-container .popup {
+.popup-fullscreen {
     width: 100%;
     height: 100%;
 }
 
-.popup-body {
+.popup-fullscreen > .popup-body {
     height: 100%;
 }
 
