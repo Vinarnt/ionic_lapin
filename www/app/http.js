@@ -41,8 +41,6 @@ angular.module('starter')
 
                     if (isHttp(config)) {
 
-                        console.log(config);
-
                         let deferred = $q.defer();
 
                         let isImage = isImageRequest(config);
