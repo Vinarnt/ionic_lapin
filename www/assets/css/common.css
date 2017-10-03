@@ -44,6 +44,10 @@ ion-content {
   background-color: #F6F6E6;
 }
 
+.scroll {
+    height: 100%;
+}
+
 .font {
   font-family: 'pacifico', serif;
   font-size: 2em;

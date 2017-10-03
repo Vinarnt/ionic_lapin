@@ -1,17 +1,13 @@
 <ion-view view-title="{{domain}}">
-  <ion-content class="padding" scroll="true">
+    <ion-content class="padding" scroll="true">
 
-    <ion-slides options="sliderOptions" slider="slider">
-    
-      <ion-slide-page ng-repeat="strip in strips | orderBy: ['date', 'id']">
-        <strip-view strip="strip"></strip-view>
-      </ion-slide-page>
+        <ion-slides options="sliderOptions" slider="slider">
 
-    </ion-slides>
+            <ion-slide-page ng-repeat="strip in strips | orderBy: ['date', 'id']">
+                <strip-view strip="strip"></strip-view>
+            </ion-slide-page>
 
-    <div class="inline-center">
-      <input class="button" type="submit" name="stories" value="stories">
-    </div>
+        </ion-slides>
 
-  </ion-content>
+    </ion-content>
 </ion-view>

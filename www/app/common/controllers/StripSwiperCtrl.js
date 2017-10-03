@@ -1,6 +1,6 @@
 function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Strip) {
 
-    const SHOW_PUB_STRIP_COUNTER = 2;
+    const SHOW_PUB_STRIP_COUNTER = 10;
 
     let lastStripId;
     let firstStripReached = false;
