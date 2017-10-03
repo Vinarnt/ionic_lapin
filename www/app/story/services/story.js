@@ -1,15 +1,5 @@
 angular.module("starter.services")
-    .factory("Story", function ($http, CacheFactory, Api) {
-
-        if (!CacheFactory.get('storyCache')) {
-
-            CacheFactory('storyCache', {
-                maxAge: 60 * 60 * 1000,
-                deleteOnExpire: 'aggressive',
-                storageMode: 'localStorage'
-            });
-
-        }
+    .factory("Story", function ($http, Api) {
 
         return {
             returnStory: function (domain, storyId) {
@@ -20,9 +10,7 @@ angular.module("starter.services")
 
                 offset = typeof offset !== 'undefined' ? offset : 0;
 
-                return $http.get(`${Api.baseUrl}stories/${domain}/${number}/${offset}`, {
-                    cache: CacheFactory.get('storyCache')
-                })
+                return $http.get(`${Api.baseUrl}stories/${domain}/${number}/${offset}`)
             },
             returnStripsByStory: function (domain, storyId, number, offset) {
 
@@ -30,9 +18,8 @@ angular.module("starter.services")
 
                 console.log(`Load ${number} strips with offset ${offset}`);
 
-                return $http.get(`${Api.baseUrl}strips/stories/${domain}/${storyId}/${number}/${offset}`, {
-                    cache: CacheFactory.get('storyCache')
-                }).then(function (response) {
+                return $http.get(`${Api.baseUrl}strips/stories/${domain}/${storyId}/${number}/${offset}`)
+                    .then(function (response) {
                     return response;
                 });
             }
