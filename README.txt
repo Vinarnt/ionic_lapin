@@ -5,14 +5,16 @@ This software is a viewer and admin for comic strips on-line. It is created for 
 # Set up
 
     $ npm install ionic
-    $ nodejs install
-    $ ionic platform add android
-    $ ionic resources
+    $ npm install
+    $ ionic cordova platform add android
 
 # Usage
 
-See API_lapin for API reference
+See https://api.lapin.org/ for API reference
 
 # Authors
 
 2017: Quentin Pourriot <quentinpourriot@outlook.fr>
+2017: Vincent Arndt <vincent.arndt@outlook.com>
+2017: Cathy Thuliez <cathy.thuliez@crea-tech.fr>
+2017: Rémi Willebrouck <willremi@gmail.com>
