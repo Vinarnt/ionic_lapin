@@ -3,6 +3,12 @@
     font-size: 0.8em;
 }
 
+.strip-thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
 .strip-title {
     font-size: 1.5em;
     color: #BF6A27;
@@ -14,21 +20,33 @@
 }
 
 ion-slides {
-    height: 100vh;
-    width: 90vw;
-    margin: 0 auto;
+    margin: 0 auto 10px;
+}
+
+.swiper-container {
+    overflow: visible;
+}
+
+.swiper-slide img {
+    object-fit: contain;
+    max-width: 90%;
+    text-align: center;
+}
+
+.strip-slide-title {
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .button {
-  background: #FFFF;
-  border-color: #be6414;
-  color: #be6414;
-  font-family: pacificoregular, "Times New Roman", serif;
-  font-size: 1.2rem;
-
+    background: #FFFF;
+    border-color: #be6414;
+    color: #be6414;
+    font-family: pacificoregular, "Times New Roman", serif;
+    font-size: 1.2rem;
 }
 
 .button:hover {
-  background: #be6414;
-  color: rgb(0, 200, 175);
+    background: #be6414;
+    color: rgb(0, 200, 175);
 }
