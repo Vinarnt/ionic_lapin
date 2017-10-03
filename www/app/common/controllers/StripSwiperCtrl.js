@@ -78,7 +78,6 @@ function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Stri
             $state.go('strip.pub');
         }
 
-        // console.log(`slide changed, index=${data.slider.activeIndex}, indexOfLast=${data.slider.slides.length - 1}, end=${data.slider.isEnd}`);
         let index = data.slider.activeIndex;
         let slider = $scope.slider;
         let currentStripId = $scope.strips[index].id;
@@ -92,8 +91,6 @@ function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Stri
             let count = 5;
             let offset = currentStripId - 5;
 
-            console.log(`Load ${count} strips from offset ${offset}`);
-
             internalGetStrips(domainName, count, offset)
                 .then(function (strips) {
 
@@ -105,7 +102,6 @@ function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Stri
                         if (strip.id === newStrip.id) {
 
                             firstStripReached = true;
-                            console.log("firstStrip reached");
                             return;
                         }
                     }
@@ -120,7 +116,6 @@ function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Stri
 
                             if ($scope.strips[i].id === strip.id) {
                                 contains = true;
-                                console.log(`Strip ${strip.id} already loaded`);
 
                                 break;
                             }
@@ -152,7 +147,6 @@ function StripSwiperCtrl(child, $scope, $state, domainName, initialStripId, Stri
                     if (strips.length === 0) {
 
                         lastStripReached = true;
-                        console.log("last strip reached");
                         return;
                     }
 

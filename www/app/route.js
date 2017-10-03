@@ -2,6 +2,7 @@ let pubPopup = null;
 
 angular.module('starter')
     .config(function ($stateProvider, $urlRouterProvider) {
+
         $stateProvider
             .state('home', {
                 url: '/home',
@@ -22,11 +23,11 @@ angular.module('starter')
                 url: '/pub',
                 controller: 'PubCtrl',
                 onEnter: function (Popup) {
+
                     pubPopup = Popup.showPub();
                 },
                 onExit: function () {
-                    console.log("Leave");
-                    console.log(pubPopup);
+
                     pubPopup.close();
                 }
             })
