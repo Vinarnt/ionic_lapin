@@ -18,17 +18,3 @@ ion-slides {
     width: 90vw;
     margin: 0 auto;
 }
-
-.button {
-  background: #FFFF;
-  border-color: #be6414;
-  color: #be6414;
-  font-family: pacificoregular, "Times New Roman", serif;
-  font-size: 1.2rem;
-
-}
-
-.button:hover {
-  background: #be6414;
-  color: rgb(0, 200, 175);
-}
