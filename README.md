@@ -14,7 +14,7 @@ See https://api.lapin.org/ for API reference
 
 # Authors
 
-2017: Quentin Pourriot <quentinpourriot@outlook.fr>
-2017: Vincent Arndt <vincent.arndt@outlook.com>
-2017: Cathy Thuliez <cathy.thuliez@crea-tech.fr>
-2017: Rémi Willebrouck <willremi@gmail.com>
+- 2017: Quentin Pourriot <quentinpourriot@outlook.fr>
+- 2017: Vincent Arndt <vincent.arndt@outlook.com>
+- 2017: Cathy Thuliez <cathy.thuliez@crea-tech.fr>
+- 2017: Rémi Willebrouck <willremi@gmail.com>
